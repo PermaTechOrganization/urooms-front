@@ -107,7 +107,7 @@
 }
 
 .white {
-  color: white;
+  color: #fff;
 }
 
 .right-container {
