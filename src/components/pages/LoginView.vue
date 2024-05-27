@@ -4,6 +4,7 @@
   <div class="login-main-container">
     <div class="left-container">
       <div class="info">
+        <img class="logo" src="/src/assets/urooms-logo.png" alt="urooms logo" />
         <h1 class="title">Los mejores alquileres</h1>
         <h2 class="subtitle">cerca de tu universidad</h2>
       </div>
@@ -18,7 +19,7 @@
 
         <div class="register-option">
           <p class="small-text">¿No tienes una cuenta?</p>
-          <router-link class="small-text link" to="/signup">Regístrate</router-link>
+          <router-link class="small-text link" to="/register">Regístrate</router-link>
         </div>
 
         <form class="log-in-form">
@@ -75,6 +76,13 @@
   padding: 0px;
   width: 40%;
   height: 100%;
+}
+
+.logo {
+  width: 50%;
+  height: auto;
+  margin: 20px;
+  align-self: center;
 }
 
 .info {
