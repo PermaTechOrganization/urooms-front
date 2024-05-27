@@ -11,11 +11,13 @@ import 'primevue/resources/primevue.min.css'
 //Components
 import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
+import TabMenu from 'primevue/tabmenu'
 
 const app = createApp(App)
 app.use(PrimeVue)
 
 app.component('InputText', InputText)
 app.component('Button', Button)
+app.component('TabMenu', TabMenu)
 
 app.mount('#app')
