@@ -1,9 +1,9 @@
 <script setup>
-import LogIn from './components/pages/LogIn.vue'
+import RegisterView from './components/pages/RegisterView.vue'
 </script>
 
 <template>
-  <LogIn />
+  <RegisterView />
 </template>
 
 <style scoped></style>
