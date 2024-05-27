@@ -23,6 +23,9 @@ function handleSubmit() {
     <InputText id="password" v-model="value" placeholder="Contraseña" />
     <Button label="Continuar" @click="handleSubmit" />
   </form>
+  <div class="login-option">
+    <router-link class="small-text link" to="/login">Ya tengo una cuenta</router-link>
+  </div>
 </template>
 
 <style scoped>
@@ -43,6 +46,28 @@ Button {
   width: auto;
   margin: 10px auto;
   font-size: 0.9rem;
+}
+
+.login-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.small-text {
+  font-size: 0.8rem;
+}
+
+.link {
+  color: #846cd9;
+  text-decoration: underline;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: #5f4bb6;
 }
 
 @media screen and (max-width: 1000px) {

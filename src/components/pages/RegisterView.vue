@@ -1,26 +1,32 @@
 <script setup>
 import { ref } from 'vue'
-import AccountForm from '../components/AccountForm.vue'
-import StudentForm from '../components/StudentForm.vue'
-import LessorForm from '../components/LessorForm.vue'
+import AccountForm from '../forms/AccountForm.vue'
+import StudentForm from '../forms/StudentForm.vue'
+import LessorForm from '../forms/LessorForm.vue'
 
 const active = ref(0)
 const formData = ref(null)
+const showAccountForm = ref(true)
 
 const items = ref([
   {
     label: 'Estudiante',
     icon: 'pi pi-home',
-    command: () => ((active.value = 0), (showAccountForm.value = true))
+    command: () => setActiveTab(0)
   },
   {
     label: 'Arrendador',
     icon: 'pi pi-chart-line',
-    command: () => ((active.value = 1), (showAccountForm.value = true))
+    command: () => setActiveTab(1)
   }
 ])
 
-const showAccountForm = ref(true)
+function setActiveTab(tabIndex) {
+  if (tabIndex !== active.value) {
+    active.value = tabIndex
+    showAccountForm.value = true
+  }
+}
 
 function handleAccountSubmit(submittedData) {
   console.log('Datos del formulario:', submittedData.data)

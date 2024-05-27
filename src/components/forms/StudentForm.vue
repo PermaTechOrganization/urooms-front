@@ -9,19 +9,19 @@ console.log('Rol del usuario:', props.userRole)
 </script>
 
 <template>
-  <form class="lessor-form">
-    <InputText id="firstName" v-model="value" placeholder="Nombre de usuario" />
-    <InputText id="lastName" v-model="value" placeholder="Correo electrónico" />
-    <InputText id="gender" v-model="value" placeholder="Contraseña" />
-    <InputText id="dni" v-model="value" placeholder="Nombre de usuario" />
-    <InputText id="phone" v-model="value" placeholder="Correo electrónico" />
-    <InputText id="photoUrl" v-model="value" placeholder="Contraseña" />
+  <form class="student-form">
+    <InputText id="firstName" v-model="value" placeholder="Nombre" />
+    <InputText id="lastName" v-model="value" placeholder="Apellido" />
+    <InputText id="gender" v-model="value" placeholder="Género" />
+    <InputText id="dni" v-model="value" placeholder="DNI" />
+    <InputText id="phone" v-model="value" placeholder="Celular" />
+    <InputText id="photoUrl" v-model="value" placeholder="URL Foto" />
     <Button label="Registrar" rounded />
   </form>
 </template>
 
 <style scoped>
-.lessor-form {
+.student-form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -46,7 +46,7 @@ Button {
     margin-top: 10px;
   }
 
-  .lessor-form {
+  .student-form {
     margin-bottom: 0px;
     margin-top: 10px;
   }
@@ -58,7 +58,7 @@ Button {
     margin-top: 10px;
   }
 
-  .lessor-form {
+  .student-form {
     margin-bottom: 0px;
     margin-top: 10px;
   }
@@ -70,7 +70,7 @@ Button {
     margin-top: 10px;
   }
 
-  .lessor-form {
+  .student-form {
     margin-bottom: 0px;
     margin-top: 10px;
   }
