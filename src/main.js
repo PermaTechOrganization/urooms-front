@@ -8,6 +8,7 @@ import router from '../src/router/router'
 //Theme
 import 'primevue/resources/themes/mdc-light-deeppurple/theme.css'
 import 'primevue/resources/primevue.min.css'
+import 'primeicons/primeicons.css'
 
 //Components
 import InputText from 'primevue/inputtext'
