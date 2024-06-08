@@ -1,4 +1,32 @@
-<script setup></script>
+<script>
+import { AuthApiService } from "@/services/AuthApiService.js";
+export default{
+  name: "LoginView",
+  data() {
+    return {
+      user: {
+        Email: "",
+        Password: "",
+        Id: 0,
+      },
+      InputEmail: "",
+      InputPassword: ""
+    };
+  },
+  methods: {
+    async Funciona() {
+      try {
+        const authApiService = new AuthApiService();
+        const response = await authApiService.findByEmail(this.InputEmail);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error al buscar el usuario:", error);
+      }
+    },
+  },
+};
+
+</script>
 
 <template>
   <div class="login-main-container">
@@ -22,10 +50,17 @@
           <router-link class="small-text link" to="/register">Regístrate</router-link>
         </div>
 
-        <form class="log-in-form">
-          <InputText id="email" v-model="value" placeholder="Correo electrónico" />
-          <InputText id="password" v-model="value" placeholder="Contraseña" />
-          <Button label="Iniciar sesión" rounded />
+        <form @submit.prevent="Funciona" class="log-in-form">
+          <FloatLabel>
+            <InputText id="email" v-model="InputEmail" placeholder="Correo electrónico" required />
+            <label for="emailLabel">Correo electrónico</label>
+          </FloatLabel>
+          <FloatLabel>
+            <Password class="log-password" id="password" v-model="InputPassword" placeholder="Contraseña" :feedback="false"
+                      :inputStyle="{'width':'100%'}" :panelStyle="{'top':'100%'}" toggleMask required/>
+            <label for="passwordLabel">Contraseña</label>
+          </FloatLabel>
+          <Button type="submit" label="Iniciar sesión"/>
         </form>
 
         <div class="forgotten-password">
@@ -158,10 +193,16 @@
   margin: 20px 0;
 }
 
-InputText {
+.log-in-form input {
   width: 100%;
-  font-size: 0.9rem;
 }
+
+.log-in-form .p-password {
+  width: 100%;
+}
+
+
+
 
 Button {
   width: auto;

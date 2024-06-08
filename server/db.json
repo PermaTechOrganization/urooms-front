@@ -1,0 +1,463 @@
+{
+  "account": [
+    {
+      "id": "1",
+      "username": "johndoe",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "johndoe@example.com"
+    },
+    {
+      "id": "2",
+      "username": "janesmith",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "janesmith@example.com"
+    },
+    {
+      "id": "3",
+      "username": "michaeljohnson",
+      "firstName": "Michael",
+      "lastName": "Johnson",
+      "email": "michaeljohnson@example.com"
+    },
+    {
+      "id": "4",
+      "username": "emilybrown",
+      "firstName": "Emily",
+      "lastName": "Brown",
+      "email": "emilybrown@example.com"
+    },
+    {
+      "id": "5",
+      "username": "chrismiller",
+      "firstName": "Chris",
+      "lastName": "Miller",
+      "email": "chrismiller@example.com"
+    },
+    {
+      "id": "6",
+      "username": "jessicataylor",
+      "firstName": "Jessica",
+      "lastName": "Taylor",
+      "email": "jessicataylor@example.com"
+    },
+    {
+      "id": "7",
+      "username": "davidanderson",
+      "firstName": "David",
+      "lastName": "Anderson",
+      "email": "davidanderson@example.com"
+    },
+    {
+      "id": "8",
+      "username": "laurawilson",
+      "firstName": "Laura",
+      "lastName": "Wilson",
+      "email": "laurawilson@example.com"
+    },
+    {
+      "id": "9",
+      "username": "matthewthomas",
+      "firstName": "Matthew",
+      "lastName": "Thomas",
+      "email": "matthewthomas@example.com"
+    },
+    {
+      "id": "10",
+      "username": "sarahlane",
+      "firstName": "Sarah",
+      "lastName": "Lane",
+      "email": "sarahlane@example.com"
+    }
+  ],
+  "student": [
+    {
+      "id": 1,
+      "gender": "male",
+      "dni": "12345678A",
+      "phone": "555-1234",
+      "photoUrl": "http://example.com/photos/johndoe.jpg",
+      "account": {
+        "id": "1",
+        "username": "johndoe",
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johndoe@example.com"
+      },
+      "career": {
+        "name": "Computer Science"
+      },
+      "university": {
+        "name": "Tech University"
+      }
+    },
+    {
+      "id": 2,
+      "gender": "female",
+      "dni": "23456789B",
+      "phone": "555-2345",
+      "photoUrl": "http://example.com/photos/janesmith.jpg",
+      "account": {
+        "id": "2",
+        "username": "janesmith",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "janesmith@example.com"
+      },
+      "career": {
+        "name": "Electrical Engineering"
+      },
+      "university": {
+        "name": "Engineering University"
+      }
+    },
+    {
+      "id": 3,
+      "gender": "male",
+      "dni": "34567890C",
+      "phone": "555-3456",
+      "photoUrl": "http://example.com/photos/michaeljohnson.jpg",
+      "account": {
+        "id": "3",
+        "username": "michaeljohnson",
+        "firstName": "Michael",
+        "lastName": "Johnson",
+        "email": "michaeljohnson@example.com"
+      },
+      "career": {
+        "name": "Mechanical Engineering"
+      },
+      "university": {
+        "name": "Tech Institute"
+      }
+    },
+    {
+      "id": 4,
+      "gender": "female",
+      "dni": "45678901D",
+      "phone": "555-4567",
+      "photoUrl": "http://example.com/photos/emilybrown.jpg",
+      "account": {
+        "id": "4",
+        "username": "emilybrown",
+        "firstName": "Emily",
+        "lastName": "Brown",
+        "email": "emilybrown@example.com"
+      },
+      "career": {
+        "name": "Civil Engineering"
+      },
+      "university": {
+        "name": "Civil University"
+      }
+    },
+    {
+      "id": 5,
+      "gender": "male",
+      "dni": "56789012E",
+      "phone": "555-5678",
+      "photoUrl": "http://example.com/photos/chrismiller.jpg",
+      "account": {
+        "id": "5",
+        "username": "chrismiller",
+        "firstName": "Chris",
+        "lastName": "Miller",
+        "email": "chrismiller@example.com"
+      },
+      "career": {
+        "name": "Software Engineering"
+      },
+      "university": {
+        "name": "Software University"
+      }
+    }
+  ],
+  "lessor": [
+    {
+      "id": 1,
+      "firstName": "Jessica",
+      "lastName": "Taylor",
+      "dni": "67890123F",
+      "phone": "555-6789",
+      "photoUrl": "http://example.com/photos/jessicataylor.jpg",
+      "account": {
+        "id": "6",
+        "username": "jessicataylor",
+        "firstName": "Jessica",
+        "lastName": "Taylor",
+        "email": "jessicataylor@example.com"
+      }
+    },
+    {
+      "id": 2,
+      "firstName": "David",
+      "lastName": "Anderson",
+      "dni": "78901234G",
+      "phone": "555-7890",
+      "photoUrl": "http://example.com/photos/davidanderson.jpg",
+      "account": {
+        "id": "7",
+        "username": "davidanderson",
+        "firstName": "David",
+        "lastName": "Anderson",
+        "email": "davidanderson@example.com"
+      }
+    },
+    {
+      "id": 3,
+      "firstName": "Laura",
+      "lastName": "Wilson",
+      "dni": "89012345H",
+      "phone": "555-8901",
+      "photoUrl": "http://example.com/photos/laurawilson.jpg",
+      "account": {
+        "id": "8",
+        "username": "laurawilson",
+        "firstName": "Laura",
+        "lastName": "Wilson",
+        "email": "laurawilson@example.com"
+      }
+    },
+    {
+      "id": 4,
+      "firstName": "Matthew",
+      "lastName": "Thomas",
+      "dni": "90123456I",
+      "phone": "555-9012",
+      "photoUrl": "http://example.com/photos/matthewthomas.jpg",
+      "account": {
+        "id": "9",
+        "username": "matthewthomas",
+        "firstName": "Matthew",
+        "lastName": "Thomas",
+        "email": "matthewthomas@example.com"
+      }
+    },
+    {
+      "id": 5,
+      "firstName": "Sarah",
+      "lastName": "Lane",
+      "dni": "01234567J",
+      "phone": "555-0123",
+      "photoUrl": "http://example.com/photos/sarahlane.jpg",
+      "account": {
+        "id": "10",
+        "username": "sarahlane",
+        "firstName": "Sarah",
+        "lastName": "Lane",
+        "email": "sarahlane@example.com"
+      }
+    }
+  ],
+  "publication": [
+    {
+      "id": 1,
+      "title": "Modern Apartment in City Center",
+      "description": "A beautiful modern apartment located in the heart of the city.",
+      "imageURL": "http://example.com/images/apartment1.jpg",
+      "price": 1500.00,
+      "rating": 4.5,
+      "lessor": {
+        "id": 1,
+        "firstName": "Jessica",
+        "lastName": "Taylor",
+        "dni": "67890123F",
+        "phone": "555-6789",
+        "photoUrl": "http://example.com/photos/jessicataylor.jpg",
+        "account": {
+          "id": "6",
+          "username": "jessicataylor",
+          "firstName": "Jessica",
+          "lastName": "Taylor",
+          "email": "jessicataylor@example.com"
+        }
+      },
+      "typeProperty": {
+        "name": "Apartment"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Cozy House in Suburbs",
+      "description": "A cozy and comfortable house in a quiet suburb.",
+      "imageURL": "http://example.com/images/house1.jpg",
+      "price": 1200.00,
+      "rating": 4.2,
+      "lessor": {
+        "id": 2,
+        "firstName": "David",
+        "lastName": "Anderson",
+        "dni": "78901234G",
+        "phone": "555-7890",
+        "photoUrl": "http://example.com/photos/davidanderson.jpg",
+        "account": {
+          "id": "7",
+          "username": "davidanderson",
+          "firstName": "David",
+          "lastName": "Anderson",
+          "email": "davidanderson@example.com"
+        }
+      },
+      "typeProperty": {
+        "name": "House"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Luxury Villa with Pool",
+      "description": "A luxurious villa with a private pool and garden.",
+      "imageURL": "http://example.com/images/villa1.jpg",
+      "price": 3000.00,
+      "rating": 4.8,
+      "lessor": {
+        "id": 3,
+        "firstName": "Laura",
+        "lastName": "Wilson",
+        "dni": "89012345H",
+        "phone": "555-8901",
+        "photoUrl": "http://example.com/photos/laurawilson.jpg",
+        "account": {
+          "id": "8",
+          "username": "laurawilson",
+          "firstName": "Laura",
+          "lastName": "Wilson",
+          "email": "laurawilson@example.com"
+        }
+      },
+      "typeProperty": {
+        "name": "Villa"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Charming Cottage",
+      "description": "A charming cottage with a beautiful garden.",
+      "imageURL": "http://example.com/images/cottage1.jpg",
+      "price": 900.00,
+      "rating": 4.0,
+      "lessor": {
+        "id": 4,
+        "firstName": "Matthew",
+        "lastName": "Thomas",
+        "dni": "90123456I",
+        "phone": "555-9012",
+        "photoUrl": "http://example.com/photos/matthewthomas.jpg",
+        "account": {
+          "id": "9",
+          "username": "matthewthomas",
+          "firstName": "Matthew",
+          "lastName": "Thomas",
+          "email": "matthewthomas@example.com"
+        }
+      },
+      "typeProperty": {
+        "name": "Cottage"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Spacious Loft",
+      "description": "A spacious loft with modern amenities.",
+      "imageURL": "http://example.com/images/loft1.jpg",
+      "price": 2000.00,
+      "rating": 4.6,
+      "lessor": {
+        "id": 5,
+        "firstName": "Sarah",
+        "lastName": "Lane",
+        "dni": "01234567J",
+        "phone": "555-0123",
+        "photoUrl": "http://example.com/photos/sarahlane.jpg",
+        "account": {
+          "id": "10",
+          "username": "sarahlane",
+          "firstName": "Sarah",
+          "lastName": "Lane",
+          "email": "sarahlane@example.com"
+        }
+      },
+      "typeProperty": {
+        "name": "Loft"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Modern Studio",
+      "description": "A modern studio apartment perfect for singles.",
+      "imageURL": "http://example.com/images/studio1.jpg",
+      "price": 800.00,
+      "rating": 4.1,
+      "lessor": {
+        "id": 1,
+        "firstName": "Jessica",
+        "lastName": "Taylor",
+        "dni": "67890123F",
+        "phone": "555-6789",
+        "photoUrl": "http://example.com/photos/jessicataylor.jpg",
+        "account": {
+          "id": "6",
+          "username": "jessicataylor",
+          "firstName": "Jessica",
+          "lastName": "Taylor",
+          "email": "jessicataylor@example.com"
+        }
+      },
+      "typeProperty": {
+        "name": "Studio"
+      }
+    },
+    {
+      "id": 7,
+      "title": "Beachfront Condo",
+      "description": "A beautiful condo located right on the beach.",
+      "imageURL": "http://example.com/images/condo1.jpg",
+      "price": 2500.00,
+      "rating": 4.7,
+      "lessor": {
+        "id": 2,
+        "firstName": "David",
+        "lastName": "Anderson",
+        "dni": "78901234G",
+        "phone": "555-7890",
+        "photoUrl": "http://example.com/photos/davidanderson.jpg",
+        "account": {
+          "id": "7",
+          "username": "davidanderson",
+          "firstName": "David",
+          "lastName": "Anderson",
+          "email": "davidanderson@example.com"
+        }
+      },
+      "typeProperty": {
+        "name": "Condo"
+      }
+    },
+    {
+      "id": 8,
+      "title": "Penthouse Suite",
+      "description": "A luxurious penthouse suite with stunning views.",
+      "imageURL": "http://example.com/images/penthouse1.jpg",
+      "price": 5000.00,
+      "rating": 4.9,
+      "lessor": {
+        "id": 3,
+        "firstName": "Laura",
+        "lastName": "Wilson",
+        "dni": "89012345H",
+        "phone": "555-8901",
+        "photoUrl": "http://example.com/photos/laurawilson.jpg",
+        "account": {
+          "id": "8",
+          "username": "laurawilson",
+          "firstName": "Laura",
+          "lastName": "Wilson",
+          "email": "laurawilson@example.com"
+        }
+      },
+      "typeProperty": {
+        "name": "Penthouse"
+      }
+    }
+  ]
+}

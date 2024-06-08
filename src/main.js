@@ -14,6 +14,8 @@ import 'primeicons/primeicons.css'
 import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import TabMenu from 'primevue/tabmenu'
+import FloatLabel from "primevue/floatlabel";
+import Password from "primevue/password";
 
 const app = createApp(App)
 app.use(PrimeVue)
@@ -22,5 +24,7 @@ app.use(router)
 app.component('InputText', InputText)
 app.component('Button', Button)
 app.component('TabMenu', TabMenu)
+app.component('FloatLabel', FloatLabel)
+app.component('Password', Password)
 
 app.mount('#app')
