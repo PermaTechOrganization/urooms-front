@@ -59,6 +59,9 @@ function handleAccountSubmit(submittedData) {
         </div>
       </div>
     </div>
+    <div class="credits-container">
+      <p class="credits-text white">Permatech &copy; 2024</p>
+    </div>
   </div>
 </template>
 
@@ -78,10 +81,10 @@ function handleAccountSubmit(submittedData) {
 
 .register-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100%;
+  height: 100%;
   width: 100vw;
   background-color: #846cd9;
 }
@@ -112,11 +115,27 @@ function handleAccountSubmit(submittedData) {
   padding: 10px;
 }
 
+.credits-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+
+.credits-text {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.white {
+  color: #fff;
+}
+
 @media screen and (max-width: 1000px) {
   .card {
     width: 80%;
     height: auto;
-    margin: 20px;
   }
 }
 
@@ -124,7 +143,6 @@ function handleAccountSubmit(submittedData) {
   .card {
     width: 80%;
     height: auto;
-    margin: 20px;
   }
 }
 
@@ -132,7 +150,6 @@ function handleAccountSubmit(submittedData) {
   .card {
     width: 85%;
     height: auto;
-    margin: 20px;
   }
 }
 </style>

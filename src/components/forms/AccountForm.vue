@@ -4,6 +4,8 @@ import { ref, defineEmits } from 'vue'
 const emits = defineEmits(['submit'])
 
 const formData = ref({
+  firstName: '',
+  lastName: '',
   username: '',
   email: '',
   password: ''
@@ -18,6 +20,8 @@ function handleSubmit() {
 
 <template>
   <form class="account-form" @submit.prevent="handleSubmit">
+    <InputText id="firstName" v-model="value" placeholder="Nombre" />
+    <InputText id="lastName" v-model="value" placeholder="Apellido" />
     <InputText id="username" v-model="value" placeholder="Nombre de usuario" />
     <InputText id="email" v-model="value" placeholder="Correo electrónico" />
     <InputText id="password" v-model="value" placeholder="Contraseña" />

@@ -10,11 +10,9 @@ console.log('Rol del usuario:', props.userRole)
 
 <template>
   <form class="student-form">
-    <InputText id="firstName" v-model="value" placeholder="Nombre" />
-    <InputText id="lastName" v-model="value" placeholder="Apellido" />
-    <InputText id="gender" v-model="value" placeholder="Género" />
     <InputText id="dni" v-model="value" placeholder="DNI" />
     <InputText id="phone" v-model="value" placeholder="Celular" />
+    <InputText id="gender" v-model="value" placeholder="Género" />
     <InputText id="photoUrl" v-model="value" placeholder="URL Foto" />
     <Button label="Registrar" rounded />
   </form>
