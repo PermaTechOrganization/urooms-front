@@ -28,10 +28,10 @@ function setActiveTab(tabIndex) {
 
 function handleAccountSubmit(submittedData) {
   console.log('Datos del formulario:', submittedData.data)
-  console.log('Se hizo clic en el botón Continuar:', submittedData.clicked)
   formData.value = submittedData.data
   showAccountForm.value = false
 }
+
 </script>
 
 <template>
@@ -39,7 +39,7 @@ function handleAccountSubmit(submittedData) {
     <div class="card">
       <h1 class="title bottom-space">Registro</h1>
 
-      <TabMenu :model="items" class="tab-menu"></TabMenu>
+      <TabMenu v-if="showAccountForm" :model="items" class="tab-menu"></TabMenu>
 
       <div class="student-container" v-if="active === 0">
         <div v-if="showAccountForm">
@@ -55,7 +55,7 @@ function handleAccountSubmit(submittedData) {
           <AccountForm @submit="handleAccountSubmit" />
         </div>
         <div v-else>
-          <LessorForm :userRole="student" />
+          <LessorForm :userRole="lessor" />
         </div>
       </div>
     </div>

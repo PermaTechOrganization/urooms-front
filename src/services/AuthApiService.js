@@ -5,6 +5,12 @@ const http = axios.create({
 });
 
 export class AuthApiService {
+
+
+    register(data){
+        return http.post('/account', data)
+    }
+
     findByEmail(Email){
         return http.get(`/account?email=${Email}`);
     }
