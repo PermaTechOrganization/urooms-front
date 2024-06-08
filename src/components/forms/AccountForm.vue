@@ -49,15 +49,15 @@ export default {
   <form @submit.prevent="register" class="account-form">
     <FloatLabel>
       <InputText id="username" v-model="username" placeholder="Nombre de usuario" required/>
-      <label for="username">Nombre de usuario</label>
+      <label for="usernameLabel">Nombre de usuario</label>
     </FloatLabel>
     <FloatLabel>
       <InputText id="email" v-model="email" placeholder="Correo electrónico" required/>
-      <label for="email">Correo electrónico</label>
+      <label for="emailLabel">Correo electrónico</label>
     </FloatLabel>
     <FloatLabel>
       <Password id="password" v-model="password" placeholder="Contraseña" toggleMask required :inputStyle="{'width':'100%'}" />
-      <label for="password">Contraseña</label>
+      <label for="passwordLabel">Contraseña</label>
     </FloatLabel>
     <Button label="Continuar" type="submit"/>
   </form>
