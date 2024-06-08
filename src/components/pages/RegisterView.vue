@@ -11,12 +11,10 @@ const showAccountForm = ref(true)
 const items = ref([
   {
     label: 'Estudiante',
-    icon: 'pi pi-home',
     command: () => setActiveTab(0)
   },
   {
     label: 'Arrendador',
-    icon: 'pi pi-chart-line',
     command: () => setActiveTab(1)
   }
 ])
