@@ -89,7 +89,6 @@ onMounted(() => {
 .publication-container {
   display: flex;
   width: 100%;
-  height: 100%;
   flex: 1;
   flex-direction: column;
   align-items: center;
