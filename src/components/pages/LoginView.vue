@@ -4,21 +4,25 @@ export default{
   name: "LoginView",
   data() {
     return {
-      user: {
-        Email: "",
-        Password: "",
-        Id: 0,
-      },
+      Id: 0,
       InputEmail: "",
       InputPassword: ""
     };
   },
   methods: {
-    async Funciona() {
+    async Login() {
       try {
         const authApiService = new AuthApiService();
         const response = await authApiService.findByEmail(this.InputEmail);
-        console.log(response.data);
+        if (this.InputPassword === "1234") {
+          this.$router.push("/home");
+          response.data.forEach((element) => {
+            this.Id = element.id;
+          });
+          console.log("Usuario encontrado con id:", this.Id);
+        } else {
+          alert("Contraseña incorrecta");
+        }
       } catch (error) {
         console.error("Error al buscar el usuario:", error);
       }
@@ -50,7 +54,7 @@ export default{
           <router-link class="small-text link" to="/register">Regístrate</router-link>
         </div>
 
-        <form @submit.prevent="Funciona" class="log-in-form">
+        <form @submit.prevent="Login" class="log-in-form">
           <FloatLabel>
             <InputText id="email" v-model="InputEmail" placeholder="Correo electrónico" required />
             <label for="emailLabel">Correo electrónico</label>
