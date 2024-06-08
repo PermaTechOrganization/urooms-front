@@ -9,6 +9,13 @@
 </template>
 
 <style scoped>
+.reservations-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
 @media screen and (max-width: 1000px) {
 }
 
