@@ -4,7 +4,9 @@ export default{
   name: "LoginView",
   data() {
     return {
-      Id: 0,
+      AccountId: 0,
+      StudentId: 0,
+      LessorId: 0,
       InputEmail: "",
       InputPassword: ""
     };
@@ -15,6 +17,7 @@ export default{
         const authApiService = new AuthApiService();
         const response = await authApiService.findByEmail(this.InputEmail);
         if (this.InputPassword === "1234") {
+          localStorage.setItem('authenticated', true);
           this.$router.push("/home");
           response.data.forEach((element) => {
             this.Id = element.id;

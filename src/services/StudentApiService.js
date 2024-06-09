@@ -21,4 +21,15 @@ export class StudentApiService {
             throw error;
         }
     }
+
+    getStudentByAccountId(accountId) {
+        return http.get('/student')
+            .then(response => {
+                return response.data.find(student => student.account.id === accountId);
+            })
+            .catch(error => {
+                console.error('Error al obtener el estudiante:', error);
+                throw error;
+            });
+    }
 }
