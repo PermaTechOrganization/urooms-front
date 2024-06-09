@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { Publication, Lessor, TypeProperty } from '../model/Model'
+import { Publication, Lessor, TypeProperty } from '../../model/Model'
 import PublicationCard from '../elements/PublicationCard.vue'
 
 const agregarPublicacion = () => {
