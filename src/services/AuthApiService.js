@@ -13,6 +13,10 @@ export class AuthApiService {
         return http.get(`/account/${id}`);
     }
 
+    getall(){
+        return http.get('/account')
+    }
+
     updatebyId(id, data){
         return http.put(`/account/${id}`, data)
     }

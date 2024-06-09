@@ -46,23 +46,25 @@ export default {
 
 
 <template>
-  <form @submit.prevent="register" class="account-form">
-    <FloatLabel>
-      <InputText id="username" v-model="username" placeholder="Nombre de usuario" required/>
-      <label for="usernameLabel">Nombre de usuario</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputText id="email" v-model="email" placeholder="Correo electrónico" required/>
-      <label for="emailLabel">Correo electrónico</label>
-    </FloatLabel>
-    <FloatLabel>
-      <Password id="password" v-model="password" placeholder="Contraseña" toggleMask required :inputStyle="{'width':'100%'}" />
-      <label for="passwordLabel">Contraseña</label>
-    </FloatLabel>
-    <Button label="Continuar" type="submit"/>
-  </form>
-  <div class="login-option">
-    <router-link class="small-text link" to="/login">Ya tengo una cuenta</router-link>
+  <div>
+    <form @submit.prevent="register" class="account-form">
+      <FloatLabel>
+        <InputText id="username" v-model="username" placeholder="Nombre de usuario" required/>
+        <label for="usernameLabel">Nombre de usuario</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputText id="email" v-model="email" placeholder="Correo electrónico" required/>
+        <label for="emailLabel">Correo electrónico</label>
+      </FloatLabel>
+      <FloatLabel>
+        <Password id="password" v-model="password" placeholder="Contraseña" toggleMask required :inputStyle="{'width':'100%'}" />
+        <label for="passwordLabel">Contraseña</label>
+      </FloatLabel>
+      <Button label="Continuar" type="submit"/>
+    </form>
+    <div class="login-option">
+      <router-link class="small-text link" to="/login">Ya tengo una cuenta</router-link>
+    </div>
   </div>
 </template>
 

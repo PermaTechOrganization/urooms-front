@@ -7,7 +7,10 @@ import {StudentApiService} from "@/services/StudentApiService.js";
 export default {
   name: 'StudentForm',
   props: {
-    userRole: String
+    account: {
+      type: Object,
+      required: true
+    }
   },
   data() {
     return {
@@ -16,13 +19,6 @@ export default {
       dni: "",
       phone: "",
       photoUrl: "",
-      account: {
-        id: "0",
-        username: "",
-        firstName: "",
-        lastName: "",
-        email: ""
-      },
       career: {
         id: 0,
         name: "",
@@ -33,10 +29,17 @@ export default {
         name: "",
         description: ""
       },
+      firstName: "",
+      lastName: "",
       careers: [],
       selectedCareerId: null,
       universities: [],
-      selectedUniversityId: null
+      selectedUniversityId: null,
+      genders: [
+        { label: 'Masculino', value: 'Masculino' },
+        { label: 'Femenino', value: 'Femenino' },
+        { label: 'Otro', value: 'Otro' }
+      ]
     }
   },
   created() {
@@ -63,50 +66,89 @@ export default {
       }
     },
     async registerStudent() {
-      console.log('Registrar nuevo estudiante');
+
+      try {
+        const careerApiService = new CareerApiService();
+        const universityApiService = new UniversityApiService();
+
+        const careerResponse = await careerApiService.findCareerById(this.selectedCareerId);
+        const universityResponse = await universityApiService.findUniversityById(this.selectedUniversityId);
+
+        const studentData = {
+          id: this.id,
+          gender: this.gender,
+          dni: this.dni,
+          phone: this.phone,
+          photoUrl: this.photoUrl,
+          account: {
+            id: this.account.id,
+            username: this.account.username,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.account.email
+          },
+          career: {
+            id: this.selectedCareerId,
+            name: careerResponse.data.name,
+            description: careerResponse.data.description
+          },
+          university: {
+            id: this.selectedUniversityId,
+            name: universityResponse.data.name,
+            description: universityResponse.data.description
+          }
+        };
+
+        console.log('Estudiante registrado con éxito:', studentData);
+      } catch (error) {
+        console.error('Error al registrar el estudiante:', error);
+      }
     }
   }
 }
 </script>
 
 <template>
-  <form class="student-form">
-    <FloatLabel>
-      <InputText id="firstName" v-model="account.firstName" placeholder="Nombre" required/>
-      <label for="emailLabel">Nombre</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputText id="lastName" v-model="account.lastName" placeholder="Apellido" required/>
-      <label for="emailLabel">Apellido</label>
-    </FloatLabel>
-    <FloatLabel>
-     <InputText id="gender" v-model="gender" placeholder="Género" required/>
-      <label for="emailLabel">Género</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputMask id="dni" v-model="dni" mask="99999999" placeholder="DNI" required/>
-      <label for="emailLabel">DNI</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputMask id="phone" v-model="phone" mask="999999999" placeholder="Celular" required/>
-      <label for="emailLabel">Celular</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputText id="photoUrl" v-model="photoUrl" placeholder="URL Foto" />
-      <label for="emailLabel">URL Foto</label>
-    </FloatLabel>
-    <FloatLabel>
-      <Dropdown v-model="selectedCareerId" :options="careers" placeholder="Seleccione una carrera" :inputStyle="{'width':'100%'}"
-                optionLabel="careerName" optionValue="careerId" @change="career.id = selectedCareerId"/>
-      <label for="career">Carrera</label>
-    </FloatLabel>
-    <FloatLabel>
-      <Dropdown v-model="selectedUniversityId" :options="universities" placeholder="Seleccione una universidad" :inputStyle="{'width':'100%'}"
-                optionLabel="universityName" optionValue="universityId" @change="university.id = selectedUniversityId"/>
-      <label for="university">Universidad</label>
-    </FloatLabel>
-    <Button label="Registrar" rounded />
-  </form>
+  <div>
+    <form class="student-form">
+      <FloatLabel>
+        <InputText id="firstName" v-model="firstName" placeholder="Nombre" required/>
+        <label for="emailLabel">Nombre</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputText id="lastName" v-model="lastName" placeholder="Apellido" required/>
+        <label for="emailLabel">Apellido</label>
+      </FloatLabel>
+      <FloatLabel>
+       <Dropdown id="gender" v-model="gender" placeholder="Género" :inputStyle="{'width':'100%'}" required
+       :options="genders" optionLabel="label" optionValue="value"/>
+        <label for="emailLabel">Género</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputMask id="dni" v-model="dni" mask="99999999" placeholder="DNI" required/>
+        <label for="emailLabel">DNI</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputMask id="phone" v-model="phone" mask="999999999" placeholder="Celular" required/>
+        <label for="emailLabel">Celular</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputText id="photoUrl" v-model="photoUrl" placeholder="URL Foto" />
+        <label for="emailLabel">URL Foto</label>
+      </FloatLabel>
+      <FloatLabel>
+        <Dropdown v-model="selectedCareerId" :options="careers" placeholder="Seleccione una carrera" :inputStyle="{'width':'100%'}"
+                  optionLabel="careerName" optionValue="careerId" @change="career.id = selectedCareerId"/>
+        <label for="career">Carrera</label>
+      </FloatLabel>
+      <FloatLabel>
+        <Dropdown v-model="selectedUniversityId" :options="universities" placeholder="Seleccione una universidad" :inputStyle="{'width':'100%'}"
+                  optionLabel="universityName" optionValue="universityId" @change="university.id = selectedUniversityId"/>
+        <label for="university">Universidad</label>
+      </FloatLabel>
+      <Button label="Registrar" rounded @click="registerStudent"/>
+    </form>
+  </div>
 </template>
 
 <style scoped>

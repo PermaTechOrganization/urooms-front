@@ -7,6 +7,7 @@ import LessorForm from '../forms/LessorForm.vue'
 const active = ref(0)
 const formData = ref(null)
 const showAccountForm = ref(true)
+const accountData = ref(null)
 
 const items = ref([
   {
@@ -27,8 +28,9 @@ function setActiveTab(tabIndex) {
 }
 
 function handleAccountSubmit(submittedData) {
-  console.log('Datos del formulario:', submittedData.data)
-  formData.value = submittedData.data
+  //console.log('Datos del formulario:', submittedData.data)
+  //formData.value = submittedData.data
+  accountData.value = submittedData;
   showAccountForm.value = false
 }
 
@@ -42,21 +44,13 @@ function handleAccountSubmit(submittedData) {
       <TabMenu v-if="showAccountForm" :model="items" class="tab-menu"></TabMenu>
 
       <div class="student-container" v-if="active === 0">
-        <div v-if="showAccountForm">
-          <AccountForm @submit="handleAccountSubmit" />
-        </div>
-        <div v-else>
-          <StudentForm :userRole="student" />
-        </div>
+        <AccountForm v-if="showAccountForm" @submit="handleAccountSubmit" />
+        <StudentForm v-if="!showAccountForm && accountData" :account="accountData" />
       </div>
 
       <div class="lessor-container" v-if="active === 1">
-        <div v-if="showAccountForm">
-          <AccountForm @submit="handleAccountSubmit" />
-        </div>
-        <div v-else>
-          <LessorForm :userRole="lessor" />
-        </div>
+        <AccountForm v-if="showAccountForm" @submit="handleAccountSubmit" />
+        <LessorForm v-if="!showAccountForm && accountData" :account="accountData" />
       </div>
     </div>
   </div>

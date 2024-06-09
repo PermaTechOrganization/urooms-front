@@ -8,4 +8,7 @@ export class StudentApiService {
     addStudent(data){
         return http.post('/student', data)
     }
+    getall(){
+        return http.get('/student')
+    }
 }
