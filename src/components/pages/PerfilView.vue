@@ -27,7 +27,7 @@ const cancelEditing = () => {
 </script>
 
 <template>
-  <div>
+  <div class="perfil-container">
     <div v-if="isEditing">
       <ProfileForm :lessor="lessor" @saveChanges="saveChanges" @cancel="cancelEditing" />
     </div>
@@ -38,5 +38,12 @@ const cancelEditing = () => {
 </template>
 
 <style scoped>
-
+.perfil-container {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
 </style>
