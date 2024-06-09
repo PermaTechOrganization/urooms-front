@@ -69,13 +69,6 @@
       "firstName": "Sarah",
       "lastName": "Lane",
       "email": "sarahlane@example.com"
-    },
-    {
-      "id": "11",
-      "username": "asddasa",
-      "email": "sdasd",
-      "firstName": "",
-      "lastName": ""
     }
   ],
   "student": [

@@ -25,4 +25,13 @@ export class AuthApiService {
         return http.get(`/account?email=${Email}`);
     }
 
+    async countAccounts() {
+        try {
+            const response = await this.getall();
+            return response.data.length;
+        } catch (error) {
+            console.error('Error al obtener el número de cuentas:', error);
+            throw error;
+        }
+    }
 }

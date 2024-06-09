@@ -39,7 +39,8 @@ export default {
         { label: 'Masculino', value: 'Masculino' },
         { label: 'Femenino', value: 'Femenino' },
         { label: 'Otro', value: 'Otro' }
-      ]
+      ],
+      studentCount: 0
     }
   },
   created() {
@@ -70,12 +71,15 @@ export default {
       try {
         const careerApiService = new CareerApiService();
         const universityApiService = new UniversityApiService();
+        const studentApiService = new StudentApiService();
 
-        const careerResponse = await careerApiService.findCareerById(this.selectedCareerId);
-        const universityResponse = await universityApiService.findUniversityById(this.selectedUniversityId);
+        this.studentCount = await studentApiService.countStudents();
+        const careerResponse = await careerApiService.getCareerById(this.selectedCareerId);
+        const universityResponse = await universityApiService.getUniversityById(this.selectedUniversityId);
+
 
         const studentData = {
-          id: this.id,
+          id: this.studentCount + 1,
           gender: this.gender,
           dni: this.dni,
           phone: this.phone,
@@ -98,10 +102,28 @@ export default {
             description: universityResponse.data.description
           }
         };
-
-        console.log('Estudiante registrado con éxito:', studentData);
+        const response = await studentApiService.addStudent(studentData);
+        this.changeName(this.account.id);
+        alert("Tu usuario fue registrado correctamente");
+        this.$router.push("/login");
+        console.log('Estudiante registrado con éxito:', response.data);
       } catch (error) {
         console.error('Error al registrar el estudiante:', error);
+      }
+    },
+    async changeName(id){
+      try {
+        const authApiService = new AuthApiService();
+        const response = await authApiService.updatebyId(id, {
+          id: id,
+          username: this.account.username,
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.account.email
+        })
+        console.log('Nombre cambiado con éxito:', response.data);
+      } catch (error) {
+        console.error('Error al cambiar el nombre:', error);
       }
     }
   }
@@ -146,7 +168,7 @@ export default {
                   optionLabel="universityName" optionValue="universityId" @change="university.id = selectedUniversityId"/>
         <label for="university">Universidad</label>
       </FloatLabel>
-      <Button label="Registrar" rounded @click="registerStudent"/>
+      <Button label="Registrar" rounded @click="registerStudent" />
     </form>
   </div>
 </template>

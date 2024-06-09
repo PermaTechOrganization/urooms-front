@@ -10,20 +10,22 @@ export default {
   },
   data() {
     return {
-      id: '11',
+      id: '',
       username: '',
       email: '',
       password: '',
       firstName: '',
       lastName: '',
+      accountCount: 0
     }
   },
   methods: {
     async register() {
       try {
         const authApiService = new AuthApiService();
+        this.accountCount = await authApiService.countAccounts();
         const response = await authApiService.register({
-          id: this.id,
+          id: (this.accountCount + 1).toString(),
           username: this.username,
           email: this.email,
           firstName: this.firstName,

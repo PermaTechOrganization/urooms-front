@@ -11,4 +11,14 @@ export class StudentApiService {
     getall(){
         return http.get('/student')
     }
+
+    async countStudents() {
+        try {
+            const response = await this.getall();
+            return response.data.length;
+        } catch (error) {
+            console.error('Error al obtener el número de estudiantes:', error);
+            throw error;
+        }
+    }
 }

@@ -8,7 +8,7 @@ export class UniversityApiService {
     getall(){
         return http.get('/university')
     }
-    findUniversityById(id){
+    getUniversityById(id){
         return http.get(`/university/${id}`)
     }
 }

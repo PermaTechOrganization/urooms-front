@@ -8,7 +8,7 @@ export class CareerApiService {
     getall(){
         return http.get('/career')
     }
-    findCareerById(id){
+    getCareerById(id){
         return http.get(`/career/${id}`)
     }
 }
