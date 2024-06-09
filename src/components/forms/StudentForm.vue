@@ -1,37 +1,72 @@
-<script setup>
-import { defineProps } from 'vue'
+<script>
+import {AuthApiService} from "@/services/AuthApiService.js";
+import {CareerApiService} from "@/services/CareerApiService.js";
+import {UniversityApiService} from "@/services/UniversityApiService.js";
+import {StudentApiService} from "@/services/StudentApiService.js";
 
-const props = defineProps({
-  userRole: String
-})
-
-console.log('Rol del usuario:', props.userRole)
+export default {
+  name: 'StudentForm',
+  props: {
+    userRole: String
+  },
+  data() {
+    return {
+      id: 0,
+      gender: "",
+      dni: "",
+      phone: "",
+      photoUrl: "",
+      account: {
+        id: "0",
+        username: "",
+        firstName: "",
+        lastName: "",
+        email: ""
+      },
+      career: {
+        id: 0,
+        name: "",
+        description: ""
+      },
+      university: {
+        id: 0,
+        name: "",
+        description: ""
+      }
+    }
+  },
+  methods: {
+    registerStudent() {
+      console.log('Registrar nuevo estudiante');
+    }
+  }
+}
 </script>
 
 <template>
   <form class="student-form">
     <FloatLabel>
-      <InputText id="firstName" v-model="value" placeholder="Nombre" required/>
+      <InputText id="firstName" v-model="account.firstName" placeholder="Nombre" required/>
       <label for="emailLabel">Nombre</label>
     </FloatLabel>
     <FloatLabel>
-      <InputText id="lastName" v-model="value" placeholder="Apellido" required/>
+      <InputText id="lastName" v-model="account.lastName" placeholder="Apellido" required/>
       <label for="emailLabel">Apellido</label>
     </FloatLabel>
     <FloatLabel>
-     <InputText id="gender" v-model="value" placeholder="Género" required/>
+     <InputText id="gender" v-model="gender" placeholder="Género" required/>
       <label for="emailLabel">Género</label>
     </FloatLabel>
     <FloatLabel>
-      <InputText id="dni" v-model="value" placeholder="DNI" required/>
+      <InputMask id="dni" v-model="dni" mask="99999999" placeholder="DNI" required/>
       <label for="emailLabel">DNI</label>
     </FloatLabel>
     <FloatLabel>
-      <InputText id="phone" v-model="value" placeholder="Celular" required/>
+      <InputMask id="phone" v-model="phone" mask="999999999" placeholder="Celular" required/>
       <label for="emailLabel">Celular</label>
     </FloatLabel>
     <FloatLabel>
-      <InputText id="photoUrl" v-model="value" placeholder="URL Foto" />
+      <InputText id="photoUrl" v-model="photoUrl" placeholder="URL Foto" />
       <label for="emailLabel">URL Foto</label>
     </FloatLabel>
     <Button label="Registrar" rounded />

@@ -73,7 +73,8 @@ function handleAccountSubmit(submittedData) {
 }
 
 .bottom-space {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .register-container {
@@ -81,7 +82,7 @@ function handleAccountSubmit(submittedData) {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 100%;
+  min-height: 100vh;
   width: 100vw;
   background-color: #846cd9;
 }

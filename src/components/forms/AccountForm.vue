@@ -76,6 +76,9 @@ export default {
   margin: 20px 0 0 0;
 }
 
+.account-form .p-float-label{
+  margin: 7px 0px;
+}
 .account-form input{
   width: 100%;
   font-size: 0.9rem;
@@ -87,7 +90,7 @@ export default {
 
 Button {
   width: auto;
-  margin: 10px auto;
+  margin: 15px auto 10px auto;
   font-size: 0.9rem;
 }
 
@@ -96,7 +99,7 @@ Button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .small-text {
