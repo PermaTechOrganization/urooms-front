@@ -32,11 +32,37 @@ export default {
         id: 0,
         name: "",
         description: ""
-      }
+      },
+      careers: [],
+      selectedCareerId: null,
+      universities: [],
+      selectedUniversityId: null
     }
   },
+  created() {
+    this.getCareers();
+    this.getUniversities();
+  },
   methods: {
-    registerStudent() {
+    async getCareers(){
+      try {
+        const careerApiService = new CareerApiService();
+        const response = await careerApiService.getall();
+        this.careers = response.data.map(career => ({ careerName: career.name, careerId: career.id }));
+      } catch (error) {
+        console.error('Error al obtener las carreras:', error);
+      }
+    },
+    async getUniversities(){
+      try {
+        const universityApiService = new UniversityApiService();
+        const response = await universityApiService.getall();
+        this.universities = response.data.map(university => ({ universityName: university.name, universityId: university.id }));
+      } catch (error) {
+        console.error('Error al obtener las universidades:', error);
+      }
+    },
+    async registerStudent() {
       console.log('Registrar nuevo estudiante');
     }
   }
@@ -69,6 +95,16 @@ export default {
       <InputText id="photoUrl" v-model="photoUrl" placeholder="URL Foto" />
       <label for="emailLabel">URL Foto</label>
     </FloatLabel>
+    <FloatLabel>
+      <Dropdown v-model="selectedCareerId" :options="careers" placeholder="Seleccione una carrera" :inputStyle="{'width':'100%'}"
+                optionLabel="careerName" optionValue="careerId" @change="career.id = selectedCareerId"/>
+      <label for="career">Carrera</label>
+    </FloatLabel>
+    <FloatLabel>
+      <Dropdown v-model="selectedUniversityId" :options="universities" placeholder="Seleccione una universidad" :inputStyle="{'width':'100%'}"
+                optionLabel="universityName" optionValue="universityId" @change="university.id = selectedUniversityId"/>
+      <label for="university">Universidad</label>
+    </FloatLabel>
     <Button label="Registrar" rounded />
   </form>
 </template>
@@ -86,6 +122,11 @@ export default {
   width: 100%;
   font-size: 0.9rem;
 }
+
+.student-form .p-dropdown {
+  width: 100%;
+}
+
 
 Button {
   width: auto;
