@@ -1,25 +1,22 @@
 <script>
 import { AuthApiService } from "@/services/AuthApiService.js";
-import {StudentApiService} from "@/services/StudentApiService.js";
-import {LessorApiService} from "@/services/LessorApiService.js";
 export default{
   name: "LoginView",
   data() {
     return {
-      AccountId: 0,
-      StudentId: 0,
-      LessorId: 0,
-      Role: "",
+      user: {
+        Email: "",
+        Password: "",
+        Id: 0,
+      },
       InputEmail: "",
       InputPassword: ""
     };
   },
   methods: {
-    async Login() {
+    async Funciona() {
       try {
         const authApiService = new AuthApiService();
-        const studentApiService = new StudentApiService();
-        const lessorApiService = new LessorApiService();
         const response = await authApiService.findByEmail(this.InputEmail);
         console.log(response.data);
         if(response.data.length !== 0){
@@ -83,7 +80,7 @@ export default{
           <router-link class="small-text link" to="/register">Regístrate</router-link>
         </div>
 
-        <form @submit.prevent="Login" class="log-in-form">
+        <form @submit.prevent="Funciona" class="log-in-form">
           <FloatLabel>
             <InputText id="email" v-model="InputEmail" placeholder="Correo electrónico" required />
             <label for="emailLabel">Correo electrónico</label>
