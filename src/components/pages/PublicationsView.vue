@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { Publication, Lessor, TypeProperty } from '../model/Model'
+import { Publication, Lessor, TypeProperty } from '../../model/Model'
 import PublicationCard from '../elements/PublicationCard.vue'
 
 const agregarPublicacion = () => {
@@ -89,11 +89,10 @@ onMounted(() => {
 .publication-container {
   display: flex;
   width: 100%;
-  height: 100%;
   flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .section-title {
