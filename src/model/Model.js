@@ -29,3 +29,13 @@ export class Publication {
     this.typeProperty = typeProperty
   }
 }
+
+export class Comment {
+  constructor(id,publicationId, author, content, date) {
+    this.id = id
+    this.publicationId = publicationId
+    this.author = author
+    this.content = content
+    this.date = date
+  }
+}
