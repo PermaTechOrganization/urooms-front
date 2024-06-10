@@ -73,7 +73,7 @@ function handleAccountSubmit(submittedData) {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   background-color: #846cd9;
 }
