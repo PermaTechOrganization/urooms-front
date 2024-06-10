@@ -21,12 +21,24 @@ const props = defineProps({
       <div class="card-rating">
         <i class="pi pi-star" v-for="i in Math.floor(publication.rating)" :key="i"></i>
       </div>
-      <button class="card-button">Ver más</button>
+      <div class="card-buttons">
+        <button class="card-button">Ver más</button>
+        <router-link :to="{ name: 'Comments', params: { id: publication.id } }" class="card-button">
+          Comentarios
+        </router-link>
+      </div>
+
     </div>
   </div>
 </template>
 
 <style scoped>
+
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
