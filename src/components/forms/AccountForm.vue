@@ -45,8 +45,6 @@ export default {
 </script>
 
 
-
-
 <template>
   <div>
     <form @submit.prevent="register" class="account-form">
