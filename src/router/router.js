@@ -16,6 +16,7 @@ const router = createRouter({
     {
       path: '/home',
       component: HomeView,
+      meta: { requiresAuth: true },
       children: [
         { path: '', redirect: '/home/search' }, // Redirige a 'search' por defecto
         { path: 'search', component: SearchView },
@@ -27,5 +28,16 @@ const router = createRouter({
     { path: '/:notFound(.*)', redirect: '/login' }
   ]
 })
+
+
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('authenticated'); // Puedes cambiar esto para usar un mejor método de autenticación
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next('/login');
+  } else {
+    next();
+  }
+});
 
 export default router
