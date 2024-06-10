@@ -75,8 +75,8 @@
     {
       "id": 1,
       "gender": "male",
-      "dni": "12345678",
-      "phone": "999852123",
+      "dni": "12345678A",
+      "phone": "555-1234",
       "photoUrl": "http://example.com/photos/johndoe.jpg",
       "account": {
         "id": "1",
@@ -86,21 +86,17 @@
         "email": "johndoe@example.com"
       },
       "career": {
-        "id": 1,
-        "name": "Computer Science",
-        "description": "The study of computers and computational systems."
+        "name": "Computer Science"
       },
       "university": {
-        "id": 1,
-        "name": "Harvard University",
-        "description": "A private Ivy League research university in Cambridge, Massachusetts."
+        "name": "Tech University"
       }
     },
     {
       "id": 2,
       "gender": "female",
-      "dni": "23456789",
-      "phone": "999852127",
+      "dni": "23456789B",
+      "phone": "555-2345",
       "photoUrl": "http://example.com/photos/janesmith.jpg",
       "account": {
         "id": "2",
@@ -110,21 +106,17 @@
         "email": "janesmith@example.com"
       },
       "career": {
-        "id": 2,
-        "name": "Electrical Engineering",
-        "description": "The study and application of electricity, electronics, and electromagnetism."
+        "name": "Electrical Engineering"
       },
       "university": {
-        "id": 1,
-        "name": "Harvard University",
-        "description": "A private Ivy League research university in Cambridge, Massachusetts."
+        "name": "Engineering University"
       }
     },
     {
       "id": 3,
       "gender": "male",
-      "dni": "34567890",
-      "phone": "999852127",
+      "dni": "34567890C",
+      "phone": "555-3456",
       "photoUrl": "http://example.com/photos/michaeljohnson.jpg",
       "account": {
         "id": "3",
@@ -134,21 +126,17 @@
         "email": "michaeljohnson@example.com"
       },
       "career": {
-        "id": 3,
-        "name": "Mechanical Engineering",
-        "description": "The design, analysis, manufacturing, and maintenance of mechanical systems."
+        "name": "Mechanical Engineering"
       },
       "university": {
-        "id": 1,
-        "name": "Harvard University",
-        "description": "A private Ivy League research university in Cambridge, Massachusetts."
+        "name": "Tech Institute"
       }
     },
     {
       "id": 4,
       "gender": "female",
-      "dni": "45678901",
-      "phone": "999852748",
+      "dni": "45678901D",
+      "phone": "555-4567",
       "photoUrl": "http://example.com/photos/emilybrown.jpg",
       "account": {
         "id": "4",
@@ -158,21 +146,17 @@
         "email": "emilybrown@example.com"
       },
       "career": {
-        "id": 1,
-        "name": "Computer Science",
-        "description": "The study of computers and computational systems."
+        "name": "Civil Engineering"
       },
       "university": {
-        "id": 2,
-        "name": "Stanford University",
-        "description": "A private research university in Stanford, California."
+        "name": "Civil University"
       }
     },
     {
       "id": 5,
       "gender": "male",
-      "dni": "56789012",
-      "phone": "999888221",
+      "dni": "56789012E",
+      "phone": "555-5678",
       "photoUrl": "http://example.com/photos/chrismiller.jpg",
       "account": {
         "id": "5",
@@ -182,22 +166,20 @@
         "email": "chrismiller@example.com"
       },
       "career": {
-        "id": 4,
-        "name": "Civil Engineering",
-        "description": "The design, construction, and maintenance of the physical and naturally built environment."
+        "name": "Software Engineering"
       },
       "university": {
-        "id": 6,
-        "name": "University of Oxford",
-        "description": "A collegiate research university in Oxford, England."
+        "name": "Software University"
       }
     }
   ],
   "lessor": [
     {
       "id": 1,
-      "dni": "67890123",
-      "phone": "905478212",
+      "firstName": "Jessica",
+      "lastName": "Taylor",
+      "dni": "67890123F",
+      "phone": "555-6789",
       "photoUrl": "http://example.com/photos/jessicataylor.jpg",
       "account": {
         "id": "6",
@@ -209,8 +191,10 @@
     },
     {
       "id": 2,
-      "dni": "78901234",
-      "phone": "905478278",
+      "firstName": "David",
+      "lastName": "Anderson",
+      "dni": "78901234G",
+      "phone": "555-7890",
       "photoUrl": "http://example.com/photos/davidanderson.jpg",
       "account": {
         "id": "7",
@@ -222,8 +206,10 @@
     },
     {
       "id": 3,
-      "dni": "89012345",
-      "phone": "905478254",
+      "firstName": "Laura",
+      "lastName": "Wilson",
+      "dni": "89012345H",
+      "phone": "555-8901",
       "photoUrl": "http://example.com/photos/laurawilson.jpg",
       "account": {
         "id": "8",
@@ -235,8 +221,10 @@
     },
     {
       "id": 4,
-      "dni": "90123456",
-      "phone": "905478210",
+      "firstName": "Matthew",
+      "lastName": "Thomas",
+      "dni": "90123456I",
+      "phone": "555-9012",
       "photoUrl": "http://example.com/photos/matthewthomas.jpg",
       "account": {
         "id": "9",
@@ -248,8 +236,10 @@
     },
     {
       "id": 5,
-      "dni": "01234567",
-      "phone": "905478212",
+      "firstName": "Sarah",
+      "lastName": "Lane",
+      "dni": "01234567J",
+      "phone": "555-0123",
       "photoUrl": "http://example.com/photos/sarahlane.jpg",
       "account": {
         "id": "10",
@@ -266,7 +256,7 @@
       "title": "Modern Apartment in City Center",
       "description": "A beautiful modern apartment located in the heart of the city.",
       "imageURL": "http://example.com/images/apartment1.jpg",
-      "price": 1500,
+      "price": 1500.00,
       "rating": 4.5,
       "lessor": {
         "id": 1,
@@ -292,7 +282,7 @@
       "title": "Cozy House in Suburbs",
       "description": "A cozy and comfortable house in a quiet suburb.",
       "imageURL": "http://example.com/images/house1.jpg",
-      "price": 1200,
+      "price": 1200.00,
       "rating": 4.2,
       "lessor": {
         "id": 2,
@@ -318,7 +308,7 @@
       "title": "Luxury Villa with Pool",
       "description": "A luxurious villa with a private pool and garden.",
       "imageURL": "http://example.com/images/villa1.jpg",
-      "price": 3000,
+      "price": 3000.00,
       "rating": 4.8,
       "lessor": {
         "id": 3,
@@ -344,8 +334,8 @@
       "title": "Charming Cottage",
       "description": "A charming cottage with a beautiful garden.",
       "imageURL": "http://example.com/images/cottage1.jpg",
-      "price": 900,
-      "rating": 4,
+      "price": 900.00,
+      "rating": 4.0,
       "lessor": {
         "id": 4,
         "firstName": "Matthew",
@@ -370,7 +360,7 @@
       "title": "Spacious Loft",
       "description": "A spacious loft with modern amenities.",
       "imageURL": "http://example.com/images/loft1.jpg",
-      "price": 2000,
+      "price": 2000.00,
       "rating": 4.6,
       "lessor": {
         "id": 5,
@@ -396,7 +386,7 @@
       "title": "Modern Studio",
       "description": "A modern studio apartment perfect for singles.",
       "imageURL": "http://example.com/images/studio1.jpg",
-      "price": 800,
+      "price": 800.00,
       "rating": 4.1,
       "lessor": {
         "id": 1,
@@ -422,7 +412,7 @@
       "title": "Beachfront Condo",
       "description": "A beautiful condo located right on the beach.",
       "imageURL": "http://example.com/images/condo1.jpg",
-      "price": 2500,
+      "price": 2500.00,
       "rating": 4.7,
       "lessor": {
         "id": 2,
@@ -448,7 +438,7 @@
       "title": "Penthouse Suite",
       "description": "A luxurious penthouse suite with stunning views.",
       "imageURL": "http://example.com/images/penthouse1.jpg",
-      "price": 5000,
+      "price": 5000.00,
       "rating": 4.9,
       "lessor": {
         "id": 3,
@@ -468,135 +458,6 @@
       "typeProperty": {
         "name": "Penthouse"
       }
-    }
-  ],
-  "university": [
-    {
-      "id": 1,
-      "name": "Harvard University",
-      "description": "A private Ivy League research university in Cambridge, Massachusetts."
-    },
-    {
-      "id": 2,
-      "name": "Stanford University",
-      "description": "A private research university in Stanford, California."
-    },
-    {
-      "id": 3,
-      "name": "Massachusetts Institute of Technology",
-      "description": "A private research university in Cambridge, Massachusetts."
-    },
-    {
-      "id": 4,
-      "name": "University of California, Berkeley",
-      "description": "A public research university in Berkeley, California."
-    },
-    {
-      "id": 5,
-      "name": "California Institute of Technology",
-      "description": "A private research university in Pasadena, California."
-    },
-    {
-      "id": 6,
-      "name": "University of Oxford",
-      "description": "A collegiate research university in Oxford, England."
-    },
-    {
-      "id": 7,
-      "name": "University of Cambridge",
-      "description": "A collegiate research university in Cambridge, England."
-    },
-    {
-      "id": 8,
-      "name": "Princeton University",
-      "description": "A private Ivy League research university in Princeton, New Jersey."
-    },
-    {
-      "id": 9,
-      "name": "Columbia University",
-      "description": "A private Ivy League research university in New York City."
-    },
-    {
-      "id": 10,
-      "name": "University of Chicago",
-      "description": "A private research university in Chicago, Illinois."
-    }
-  ],
-  "career": [
-    {
-      "id": 1,
-      "name": "Computer Science",
-      "description": "The study of computers and computational systems."
-    },
-    {
-      "id": 2,
-      "name": "Electrical Engineering",
-      "description": "The study and application of electricity, electronics, and electromagnetism."
-    },
-    {
-      "id": 3,
-      "name": "Mechanical Engineering",
-      "description": "The design, analysis, manufacturing, and maintenance of mechanical systems."
-    },
-    {
-      "id": 4,
-      "name": "Civil Engineering",
-      "description": "The design, construction, and maintenance of the physical and naturally built environment."
-    },
-    {
-      "id": 5,
-      "name": "Business Administration",
-      "description": "The performance or management of business operations and decision-making."
-    },
-    {
-      "id": 6,
-      "name": "Economics",
-      "description": "The social science that studies the production, distribution, and consumption of goods and services."
-    },
-    {
-      "id": 7,
-      "name": "Psychology",
-      "description": "The scientific study of the mind and behavior."
-    },
-    {
-      "id": 8,
-      "name": "Medicine",
-      "description": "The science and practice of the diagnosis, treatment, and prevention of disease."
-    },
-    {
-      "id": 9,
-      "name": "Law",
-      "description": "The system of rules created and enforced through social or governmental institutions to regulate behavior."
-    },
-    {
-      "id": 10,
-      "name": "Biology",
-      "description": "The natural science that studies life and living organisms."
-    },
-    {
-      "id": 11,
-      "name": "Chemistry",
-      "description": "The science that studies the composition, structure, properties, and change of matter."
-    },
-    {
-      "id": 12,
-      "name": "Physics",
-      "description": "The natural science that studies matter, its motion and behavior through space and time."
-    },
-    {
-      "id": 13,
-      "name": "Architecture",
-      "description": "The art and science of designing and constructing buildings."
-    },
-    {
-      "id": 14,
-      "name": "Environmental Science",
-      "description": "The study of the environment and the solution of environmental problems."
-    },
-    {
-      "id": 15,
-      "name": "Sociology",
-      "description": "The study of the development, structure, and functioning of human society."
     }
   ]
 }

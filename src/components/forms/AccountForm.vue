@@ -1,73 +1,36 @@
-<script>
-import { AuthApiService} from "@/services/AuthApiService.js";
-export default {
-  name: 'AccountForm',
-  props: {
-    onSubmit: {
-      type: Function,
-      required: true
-    }
-  },
-  data() {
-    return {
-      id: '',
-      username: '',
-      email: '',
-      password: '',
-      firstName: '',
-      lastName: '',
-      accountCount: 0
-    }
-  },
-  methods: {
-    async register() {
-      try {
-        const authApiService = new AuthApiService();
-        this.accountCount = await authApiService.countAccounts();
-        const response = await authApiService.register({
-          id: (this.accountCount + 1).toString(),
-          username: this.username,
-          email: this.email,
-          firstName: this.firstName,
-          lastName: this.lastName,
-        });
-        console.log('Usuario registrado con éxito:', response.data);
-        this.onSubmit(response.data);
-      } catch (error) {
-        console.error('Error al registrar el usuario:', error);
-        alert('Ocurrió un error al registrar el usuario. Por favor, inténtelo nuevamente.');
-      }
-    },
-  },
+<script setup>
+import { ref, defineEmits } from 'vue'
 
-};
+const emits = defineEmits(['submit'])
 
+const formData = ref({
+  firstName: '',
+  lastName: '',
+  username: '',
+  email: '',
+  password: ''
+})
+
+function handleSubmit() {
+  console.log('Datos del formulario:', formData.value)
+  console.log('Se hizo clic en el botón Continuar:', true)
+  emits('submit', { data: formData.value, clicked: true })
+}
 </script>
 
-
 <template>
-  <div>
-    <form @submit.prevent="register" class="account-form">
-      <FloatLabel>
-        <InputText id="username" v-model="username" placeholder="Nombre de usuario" required/>
-        <label for="usernameLabel">Nombre de usuario</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText id="email" v-model="email" placeholder="Correo electrónico" required/>
-        <label for="emailLabel">Correo electrónico</label>
-      </FloatLabel>
-      <FloatLabel>
-        <Password id="password" v-model="password" placeholder="Contraseña" toggleMask required :inputStyle="{'width':'100%'}" />
-        <label for="passwordLabel">Contraseña</label>
-      </FloatLabel>
-      <Button label="Continuar" type="submit"/>
-    </form>
-    <div class="login-option">
-      <router-link class="small-text link" to="/login">Ya tengo una cuenta</router-link>
-    </div>
+  <form class="account-form" @submit.prevent="handleSubmit">
+    <InputText id="firstName" v-model="value" placeholder="Nombre" />
+    <InputText id="lastName" v-model="value" placeholder="Apellido" />
+    <InputText id="username" v-model="value" placeholder="Nombre de usuario" />
+    <InputText id="email" v-model="value" placeholder="Correo electrónico" />
+    <InputText id="password" v-model="value" placeholder="Contraseña" />
+    <Button label="Continuar" @click="handleSubmit" />
+  </form>
+  <div class="login-option">
+    <router-link class="small-text link" to="/login">Ya tengo una cuenta</router-link>
   </div>
 </template>
-
 
 <style scoped>
 .account-form {
@@ -78,21 +41,14 @@ export default {
   margin: 20px 0 0 0;
 }
 
-.account-form .p-float-label{
-  margin: 7px 0px;
-}
-.account-form input{
+InputText {
   width: 100%;
   font-size: 0.9rem;
 }
 
-.account-form .p-password {
-  width: 100%;
-}
-
 Button {
   width: auto;
-  margin: 15px auto 10px auto;
+  margin: 10px auto;
   font-size: 0.9rem;
 }
 
@@ -101,7 +57,7 @@ Button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .small-text {
