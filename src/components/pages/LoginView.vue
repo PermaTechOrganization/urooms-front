@@ -21,31 +21,36 @@ export default{
         const studentApiService = new StudentApiService();
         const lessorApiService = new LessorApiService();
         const response = await authApiService.findByEmail(this.InputEmail);
+        console.log(response.data);
+        if(response.data.length !== 0){
+          if (this.InputPassword === "1234") {
+            localStorage.setItem('authenticated', true);
+            response.data.forEach((element) => {
+              this.AccountId = element.id;
+            });
+            const responseStudent = await studentApiService.getStudentByAccountId(this.AccountId);
+            const responseLessor = await lessorApiService.getLessorByAccountId(this.AccountId);
 
-        if (this.InputPassword === "1234") {
-          localStorage.setItem('authenticated', true);
-          response.data.forEach((element) => {
-            this.AccountId = element.id;
-          });
-          const responseStudent = await studentApiService.getStudentByAccountId(this.AccountId);
-          const responseLessor = await lessorApiService.getLessorByAccountId(this.AccountId);
+            if(responseStudent !== undefined && responseLessor === undefined){
+              this.StudentId = responseStudent.id;
+              this.$router.push("/home");
+              this.Role = "Student"
+              console.log(this.StudentId, this.Role);
+            }
+            else{
+              this.LessorId = responseLessor.id;
+              this.$router.push("/home/publications");
+              this.Role = "Lessor"
+              console.log(this.LessorId, this.Role);
+            }
 
-          if(responseStudent !== undefined && responseLessor === undefined){
-            this.StudentId = responseStudent.id;
-            this.$router.push("/home");
-            this.Role = "Student"
-            console.log(this.StudentId, this.Role);
+            console.log("Usuario encontrado con id:", this.AccountId);
+          } else {
+            alert("Contraseña incorrecta");
           }
-          else{
-            this.LessorId = responseLessor.id;
-            this.$router.push("/home/publications");
-            this.Role = "Lessor"
-            console.log(this.LessorId, this.Role);
-          }
-
-          console.log("Usuario encontrado con id:", this.AccountId);
-        } else {
-          alert("Contraseña incorrecta");
+        }
+        else {
+          alert("Correo incorrecto");
         }
       } catch (error) {
         console.error("Error al buscar el usuario:", error);
