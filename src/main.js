@@ -16,6 +16,10 @@ import Button from 'primevue/button'
 import TabMenu from 'primevue/tabmenu'
 import FloatLabel from "primevue/floatlabel";
 import Password from "primevue/password";
+import InputMask from "primevue/inputmask";
+import Dropdown from "primevue/dropdown";
+
+localStorage.removeItem('authenticated');
 
 const app = createApp(App)
 app.use(PrimeVue)
@@ -26,5 +30,7 @@ app.component('Button', Button)
 app.component('TabMenu', TabMenu)
 app.component('FloatLabel', FloatLabel)
 app.component('Password', Password)
+app.component('InputMask', InputMask)
+app.component('Dropdown', Dropdown)
 
 app.mount('#app')
