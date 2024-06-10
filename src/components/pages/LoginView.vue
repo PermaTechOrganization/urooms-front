@@ -1,5 +1,7 @@
 <script>
 import { AuthApiService } from "@/services/AuthApiService.js";
+import {StudentApiService} from "@/services/StudentApiService.js";
+import {LessorApiService} from "@/services/LessorApiService.js";
 export default{
   name: "LoginView",
   data() {
@@ -7,6 +9,7 @@ export default{
       AccountId: 0,
       StudentId: 0,
       LessorId: 0,
+      Role: "",
       InputEmail: "",
       InputPassword: ""
     };
@@ -15,14 +18,32 @@ export default{
     async Login() {
       try {
         const authApiService = new AuthApiService();
+        const studentApiService = new StudentApiService();
+        const lessorApiService = new LessorApiService();
         const response = await authApiService.findByEmail(this.InputEmail);
+
         if (this.InputPassword === "1234") {
           localStorage.setItem('authenticated', true);
-          this.$router.push("/home");
           response.data.forEach((element) => {
-            this.Id = element.id;
+            this.AccountId = element.id;
           });
-          console.log("Usuario encontrado con id:", this.Id);
+          const responseStudent = await studentApiService.getStudentByAccountId(this.AccountId);
+          const responseLessor = await lessorApiService.getLessorByAccountId(this.AccountId);
+
+          if(responseStudent !== undefined && responseLessor === undefined){
+            this.StudentId = responseStudent.id;
+            this.$router.push("/home");
+            this.Role = "Student"
+            console.log(this.StudentId, this.Role);
+          }
+          else{
+            this.LessorId = responseLessor.id;
+            this.$router.push("/home/publications");
+            this.Role = "Lessor"
+            console.log(this.LessorId, this.Role);
+          }
+
+          console.log("Usuario encontrado con id:", this.AccountId);
         } else {
           alert("Contraseña incorrecta");
         }

@@ -5,7 +5,6 @@ import StudentForm from '../forms/StudentForm.vue'
 import LessorForm from '../forms/LessorForm.vue'
 
 const active = ref(0)
-const formData = ref(null)
 const showAccountForm = ref(true)
 const accountData = ref(null)
 
@@ -28,8 +27,6 @@ function setActiveTab(tabIndex) {
 }
 
 function handleAccountSubmit(submittedData) {
-  //console.log('Datos del formulario:', submittedData.data)
-  //formData.value = submittedData.data
   accountData.value = submittedData;
   showAccountForm.value = false
 }

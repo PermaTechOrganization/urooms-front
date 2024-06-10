@@ -1,41 +1,101 @@
-<script setup>
-import { defineProps } from 'vue'
+<script>
+import { AuthApiService } from "@/services/AuthApiService.js";
+import { LessorApiService } from "@/services/LessorApiService.js";
 
-const props = defineProps({
-  userRole: String
-})
+export default {
+  name: 'LessorForm',
+  props: {
+    account: {
+      type: Object,
+      required: true
+    }
+  },
+  data() {
+    return {
+      id: 0,
+      dni: "",
+      phone: "",
+      photoUrl: "",
+      firstName: "",
+      lastName: "",
+      lessorCount: 0
+    }
+  },
+  methods: {
+    async registerLessor() {
+      try {
+        const lessorApiService = new LessorApiService();
+        this.lessorCount = await lessorApiService.countLessors();
+        const lessorData = {
+          id: this.lessorCount + 1,
+          firstName: this.firstName,
+          lastName: this.lastName,
+          dni: this.dni,
+          phone: this.phone,
+          photoUrl: this.photoUrl,
+          account: {
+            Id: this.account.id,
+            username: this.account.username,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.account.email
+          }
+        }
+        const response = await lessorApiService.addLessor(lessorData);
+        this.changeName(this.account.id);
+        console.log('Arrendador registrado con éxito:', response.data);
+        alert("Tu usuario fue registrado correctamente");
+        this.$router.push("/login");
 
-console.log('Rol del usuario:', props.userRole)
+      } catch (error) {
+        console.error('Error al registrar el arrendador:', error);
+      }
+    },
+    async changeName(id){
+      try {
+        const authApiService = new AuthApiService();
+        const response = await authApiService.updatebyId(id, {
+          id: id,
+          username: this.account.username,
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.account.email
+        })
+        console.log('Nombre cambiado con éxito:', response.data);
+      } catch (error) {
+        console.error('Error al cambiar el nombre:', error);
+      }
+    }
+  }
+}
 </script>
 
 <template>
-  <form class="lessor-form">
-    <FloatLabel>
-      <InputText id="firstName" v-model="value" placeholder="Nombre" required/>
-      <label for="firstNameLabel">Nombre</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputText id="lastName" v-model="value" placeholder="Apellido" required/>
-      <label for="lastNameLabel">Apellido</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputText id="gender" v-model="value" placeholder="Género" required/>
-      <label for="genderLabel">Género</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputText id="dni" v-model="value" placeholder="DNI" required/>
-      <label for="dniLabel">DNI</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputText id="phone" v-model="value" placeholder="Celular" required/>
-      <label for="phoneLabel">Celular</label>
-    </FloatLabel>
-    <FloatLabel>
-      <InputText id="photoUrl" v-model="value" placeholder="URL Foto" />
-      <label for="photoUrlLabel">URL Foto</label>
-    </FloatLabel>
-    <Button label="Registrar" rounded />
-  </form>
+  <div>
+    <form class="lessor-form">
+      <FloatLabel>
+        <InputText id="firstName" v-model="firstName" placeholder="Nombre" required/>
+        <label for="firstNameLabel">Nombre</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputText id="lastName" v-model="lastName" placeholder="Apellido" required/>
+        <label for="lastNameLabel">Apellido</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputMask id="dni" v-model="dni" mask="99999999" placeholder="DNI" required/>
+        <label for="emailLabel">DNI</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputMask id="phone" v-model="phone" mask="999999999" placeholder="Celular" required/>
+        <label for="emailLabel">Celular</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputText id="photoUrl" v-model="photoUrl" placeholder="URL Foto" />
+        <label for="photoUrlLabel">URL Foto</label>
+      </FloatLabel>
+      <Button label="Registrar" rounded @click="registerLessor" />
+    </form>
+  </div>
 </template>
 
 <style scoped>

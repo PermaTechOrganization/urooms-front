@@ -104,9 +104,9 @@ export default {
         };
         const response = await studentApiService.addStudent(studentData);
         this.changeName(this.account.id);
+        console.log('Estudiante registrado con éxito:', response.data);
         alert("Tu usuario fue registrado correctamente");
         this.$router.push("/login");
-        console.log('Estudiante registrado con éxito:', response.data);
       } catch (error) {
         console.error('Error al registrar el estudiante:', error);
       }
