@@ -1,52 +1,24 @@
 <script>
 import { AuthApiService } from "@/services/AuthApiService.js";
-import {StudentApiService} from "@/services/StudentApiService.js";
-import {LessorApiService} from "@/services/LessorApiService.js";
 export default{
   name: "LoginView",
   data() {
     return {
-      AccountId: 0,
-      StudentId: 0,
-      LessorId: 0,
-      Role: "",
+      user: {
+        Email: "",
+        Password: "",
+        Id: 0,
+      },
       InputEmail: "",
       InputPassword: ""
     };
   },
   methods: {
-    async Login() {
+    async Funciona() {
       try {
         const authApiService = new AuthApiService();
-        const studentApiService = new StudentApiService();
-        const lessorApiService = new LessorApiService();
         const response = await authApiService.findByEmail(this.InputEmail);
-
-        if (this.InputPassword === "1234") {
-          localStorage.setItem('authenticated', true);
-          response.data.forEach((element) => {
-            this.AccountId = element.id;
-          });
-          const responseStudent = await studentApiService.getStudentByAccountId(this.AccountId);
-          const responseLessor = await lessorApiService.getLessorByAccountId(this.AccountId);
-
-          if(responseStudent !== undefined && responseLessor === undefined){
-            this.StudentId = responseStudent.id;
-            this.$router.push("/home");
-            this.Role = "Student"
-            console.log(this.StudentId, this.Role);
-          }
-          else{
-            this.LessorId = responseLessor.id;
-            this.$router.push("/home/publications");
-            this.Role = "Lessor"
-            console.log(this.LessorId, this.Role);
-          }
-
-          console.log("Usuario encontrado con id:", this.AccountId);
-        } else {
-          alert("Contraseña incorrecta");
-        }
+        console.log(response.data);
       } catch (error) {
         console.error("Error al buscar el usuario:", error);
       }
@@ -78,7 +50,7 @@ export default{
           <router-link class="small-text link" to="/register">Regístrate</router-link>
         </div>
 
-        <form @submit.prevent="Login" class="log-in-form">
+        <form @submit.prevent="Funciona" class="log-in-form">
           <FloatLabel>
             <InputText id="email" v-model="InputEmail" placeholder="Correo electrónico" required />
             <label for="emailLabel">Correo electrónico</label>
