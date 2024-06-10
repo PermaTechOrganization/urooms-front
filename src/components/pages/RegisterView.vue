@@ -5,8 +5,8 @@ import StudentForm from '../forms/StudentForm.vue'
 import LessorForm from '../forms/LessorForm.vue'
 
 const active = ref(0)
-const formData = ref(null)
 const showAccountForm = ref(true)
+const accountData = ref(null)
 
 const items = ref([
   {
@@ -27,11 +27,10 @@ function setActiveTab(tabIndex) {
 }
 
 function handleAccountSubmit(submittedData) {
-  console.log('Datos del formulario:', submittedData.data)
-  console.log('Se hizo clic en el botón Continuar:', submittedData.clicked)
-  formData.value = submittedData.data
+  accountData.value = submittedData;
   showAccountForm.value = false
 }
+
 </script>
 
 <template>
@@ -39,24 +38,16 @@ function handleAccountSubmit(submittedData) {
     <div class="card">
       <h1 class="title bottom-space">Registro</h1>
 
-      <TabMenu :model="items" class="tab-menu"></TabMenu>
+      <TabMenu v-if="showAccountForm" :model="items" class="tab-menu"></TabMenu>
 
       <div class="student-container" v-if="active === 0">
-        <div v-if="showAccountForm">
-          <AccountForm @submit="handleAccountSubmit" />
-        </div>
-        <div v-else>
-          <StudentForm :userRole="student" />
-        </div>
+        <AccountForm v-if="showAccountForm" @submit="handleAccountSubmit" />
+        <StudentForm v-if="!showAccountForm && accountData" :account="accountData" />
       </div>
 
       <div class="lessor-container" v-if="active === 1">
-        <div v-if="showAccountForm">
-          <AccountForm @submit="handleAccountSubmit" />
-        </div>
-        <div v-else>
-          <LessorForm :userRole="student" />
-        </div>
+        <AccountForm v-if="showAccountForm" @submit="handleAccountSubmit" />
+        <LessorForm v-if="!showAccountForm && accountData" :account="accountData" />
       </div>
     </div>
     <div class="credits-container">
@@ -76,15 +67,16 @@ function handleAccountSubmit(submittedData) {
 }
 
 .bottom-space {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .register-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   background-color: #846cd9;
 }
