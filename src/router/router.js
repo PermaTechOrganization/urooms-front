@@ -22,7 +22,7 @@ const router = createRouter({
         { path: 'search', component: SearchView },
         { path: 'reservations', component: ReservationsView },
         { path: 'publications', component: PublicationsView },
-        { path: 'perfil', component: PerfilView }
+        { path: 'profile', component: PerfilView }
       ]
     },
     { path: '/:notFound(.*)', redirect: '/login' }
