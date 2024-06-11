@@ -19,6 +19,8 @@ import Password from "primevue/password";
 import InputMask from "primevue/inputmask";
 import Dropdown from "primevue/dropdown";
 
+//localStorage.removeItem('authenticated')
+//localStorage.removeItem('userRole')
 
 const app = createApp(App)
 app.use(PrimeVue)

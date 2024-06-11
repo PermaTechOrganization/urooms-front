@@ -1,6 +1,28 @@
-<script setup>
-const userPicture = 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'
-const name = 'María'
+<script>
+import {StudentApiService} from "@/services/StudentApiService.js";
+
+export default {
+  name: 'NavBarStudent',
+  data() {
+    return {
+      accountId: localStorage.getItem('accountId'),
+      studentId: localStorage.getItem('studentId'),
+      nameStudent: '',
+      pictureStudent: ''
+    };
+  },
+  created() {
+    this.getStudentId();
+  },
+  methods: {
+    async getStudentId() {
+      const studentApiService = new StudentApiService();
+      const response = await studentApiService.getStudentById(this.studentId);
+      this.nameStudent = response.data.account.firstName;
+      this.pictureStudent = response.data.photoUrl;
+    }
+  }
+}
 </script>
 
 <template>
@@ -16,11 +38,11 @@ const name = 'María'
       <router-link to="/register">Favoritos</router-link>
     </div>
     <div class="welcome-user">
-      <p>Hola, {{ name }}</p>
+      <p>Hola, {{ nameStudent }}</p>
     </div>
     <div class="user-menu">
       <i class="pi pi-bars" style="font-size: 1rem"></i>
-      <img class="user-avatar" :src="userPicture" alt="user" />
+      <img class="user-avatar" src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="user" />
     </div>
   </div>
 </template>

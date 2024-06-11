@@ -11,6 +11,9 @@ export class LessorApiService {
     getall(){
         return http.get('/lessor')
     }
+    getLessorById(id){
+        return http.get(`/lessor/${id}`)
+    }
 
     async countLessors() {
         try {

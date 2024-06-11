@@ -1,6 +1,28 @@
-<script setup>
-const userPicture = 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'
-const name = 'Carlos'
+<script>
+import { LessorApiService } from "@/services/LessorApiService.js";
+export default {
+  name: 'NavBarLessor',
+  data() {
+    return {
+      accountId: localStorage.getItem('accountId'),
+      lessorId: localStorage.getItem('lessorId'),
+      nameLessor: '',
+      pictureLessor: ''
+    };
+  },
+  created() {
+    this.getLessorId();
+  },
+  methods: {
+    async getLessorId() {
+      const lessorApiService = new LessorApiService();
+      const response = await lessorApiService.getLessorById(this.lessorId);
+      this.nameLessor = response.data.account.firstName;
+      this.pictureLessor = response.data.photoUrl;
+    }
+  }
+}
+
 </script>
 
 <template>
@@ -16,11 +38,11 @@ const name = 'Carlos'
       <router-link to="/register">Solicitudes</router-link>
     </div>
     <div class="welcome-user">
-      <p>Hola, {{ name }}</p>
+      <p>Hola, {{ nameLessor }}</p>
     </div>
     <div class="user-menu">
       <i class="pi pi-bars" style="font-size: 1rem"></i>
-      <img class="user-avatar" :src="userPicture" alt="user" />
+      <img class="user-avatar" src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="user" />
     </div>
   </div>
 </template>

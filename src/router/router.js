@@ -17,7 +17,12 @@ const router = createRouter({
       path: '/home',
       component: HomeView,
       meta: { requiresAuth: true },
-      props: (route) => ({ userRole: localStorage.getItem('userRole') || 'student' }),
+      props: (route) => ({
+        userRole: localStorage.getItem('userRole') || 'null',
+        accountId: localStorage.getItem('accountId'),
+        studentId: localStorage.getItem('studentId'),
+        lessorId: localStorage.getItem('lessorId'),
+      }),
       children: [
         { path: '', redirect: '/home/search' }, // Redirige a 'search' por defecto
         { path: 'search', component: SearchView },

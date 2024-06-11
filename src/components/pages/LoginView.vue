@@ -33,15 +33,23 @@ export default{
 
             if(responseStudent !== undefined && responseLessor === undefined){
               this.StudentId = responseStudent.id;
+              this.LessorId = 0
               this.Role = "Student";
               localStorage.setItem('userRole', this.Role);
+              localStorage.setItem('studentId', this.StudentId);
+              localStorage.setItem('accountId', this.AccountId);
+              localStorage.setItem('lessorId', this.LessorId);
               this.$router.push("/home");
               console.log(this.StudentId, this.Role);
             }
             else{
               this.LessorId = responseLessor.id;
+              this.StudentId = 0;
               this.Role = "Lessor";
               localStorage.setItem('userRole', this.Role);
+              localStorage.setItem('studentId', this.StudentId);
+              localStorage.setItem('accountId', this.AccountId);
+              localStorage.setItem('lessorId', this.LessorId);
               this.$router.push("/home/publications");
               console.log(this.LessorId, this.Role);
             }

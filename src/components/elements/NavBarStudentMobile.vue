@@ -1,3 +1,9 @@
+<script>
+export default {
+  name: 'NavBarStudentMobile'
+}
+</script>
+
 <template>
   <div class="mobile-navbar-container">
     <router-link to="/home/search" class="mobile-navbar-item">
@@ -12,7 +18,7 @@
       <i class="pi pi-heart"></i>
       <span>Favoritos</span>
     </router-link>
-    <router-link to="/user" class="mobile-navbar-item">
+    <router-link to="/home/profile" class="mobile-navbar-item">
       <i class="pi pi-user"></i>
       <span>Perfil</span>
     </router-link>

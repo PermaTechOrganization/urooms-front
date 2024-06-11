@@ -12,6 +12,10 @@ export class StudentApiService {
         return http.get('/student')
     }
 
+    getStudentById(id){
+        return http.get(`/student/${id}`)
+    }
+
     async countStudents() {
         try {
             const response = await this.getall();

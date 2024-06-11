@@ -1,3 +1,9 @@
+<script>
+export default {
+  name: 'NavBarLessorMobile'
+}
+</script>
+
 <template>
   <div class="mobile-navbar-container">
     <router-link to="/home/publications" class="mobile-navbar-item">
@@ -12,9 +18,9 @@
       <i class="pi pi-bell" style="font-size: 1rem"></i>
       <span>Solicitudes</span>
     </router-link>
-    <router-link to="/user" class="mobile-navbar-item">
+    <router-link to="/home/profile" class="mobile-navbar-item">
       <i class="pi pi-user"></i>
-      <span>Perfil</span>
+      <span> Perfil </span>
     </router-link>
   </div>
 </template>
