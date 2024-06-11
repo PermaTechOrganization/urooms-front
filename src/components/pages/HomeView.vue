@@ -1,18 +1,32 @@
-<script setup>
+<script>
 import NavBarStudent from '../elements/NavBarStudent.vue'
 import NavBarStudentMobile from '../elements/NavBarStudentMobile.vue'
 import NavBarLessor from '../elements/NavBarLessor.vue'
 import NavBarLessorMobile from '../elements/NavBarLessorMobile.vue'
 
-var userRole = 'lessor'
+export default {
+  name: 'HomeView',
+  components:{
+    NavBarStudent,
+    NavBarStudentMobile,
+    NavBarLessor,
+    NavBarLessorMobile
+  },
+  props: {
+    userRole: {
+      type: String,
+      required: true
+    }
+  }
+}
 </script>
 
 <template>
   <div class="home-container">
-    <NavBarStudent v-if="userRole === 'student'" />
+    <NavBarStudent v-if="userRole === 'Student'" />
     <NavBarLessor v-else />
     <router-view />
-    <NavBarStudentMobile v-if="userRole === 'student'" />
+    <NavBarStudentMobile v-if="userRole === 'Student'" />
     <NavBarLessorMobile v-else />
   </div>
 </template>

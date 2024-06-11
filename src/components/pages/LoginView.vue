@@ -33,14 +33,20 @@ export default{
 
             if(responseStudent !== undefined && responseLessor === undefined){
               this.StudentId = responseStudent.id;
-              this.$router.push("/home");
               this.Role = "Student"
+              this.$router.push({
+                path: "/home",
+                query: { role: this.Role }
+              });
               console.log(this.StudentId, this.Role);
             }
             else{
               this.LessorId = responseLessor.id;
-              this.$router.push("/home/publications");
               this.Role = "Lessor"
+              this.$router.push({
+                path: "/home/publications",
+                query: { role: this.Role }
+              });
               console.log(this.LessorId, this.Role);
             }
 
